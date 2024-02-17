@@ -7,7 +7,7 @@ Counter Assignment
     - localhost:5000 - Have the template render the number of times the client has visited this site
     - localhost:5000/destroy_session - Clear the seession. Once cleared, redirect to the root.
 
--Assignment checklist
+- Assignment checklist
     - Create a new Flask project called Counter
     - Have the root route render a teemplatee that displays the number of times the client has visited this site. Refresh the page several times to ensure the counter is working.
     - Add a "/destroy_session" route that clears the session and redirects to the root route. Test it.
