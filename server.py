@@ -11,6 +11,9 @@ def add():
     session['count'] = request.form['']
     return redirect('/')
 
+@app.route('/logout')
+def destroy_session():
+    pass
 
 if __name__=="__main__":
     app.run(debug=True)
