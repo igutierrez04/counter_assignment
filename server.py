@@ -4,16 +4,29 @@ app.secret_key = "C0d!ng !$ fun"
 
 @app.route('/')
 def home():
+    if 'count' not in session:
+        session['count'] = 0
+    else:
+        session['count'] += 1
     return render_template('index.html')
 
-@app.route('/add', methods=['POST'])
+@app.route('/add')
 def add():
-    session['count'] = request.form['']
+    if 'count' in session:
+        session['count'] = session['count'] + 1
+    else:
+        session['count'] += 1
     return redirect('/')
 
-@app.route('/logout')
+@app.route('/destroy_session')
 def destroy_session():
-    pass
+    session.clear()
+    return redirect('/')
+
+@app.route('/reset')
+def reset():
+    session['count'] = 0
+    return render_template('index.html')
 
 if __name__=="__main__":
     app.run(debug=True)
